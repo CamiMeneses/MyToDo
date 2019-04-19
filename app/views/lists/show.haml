@@ -1,0 +1,17 @@
+.container
+  %h1.text-center= @list.name
+  %table.table.table-striped.mt-5
+    %thead.table-dark
+      %tr
+        %th Name
+        %th Description
+        %th{ :colspan => 3 } Actions
+    %tbody
+      %tr
+        %td= @list.name
+        %td= @list.description
+        %td= link_to 'Edit', edit_user_list_path(current_user,@list.id), class: 'btn btn-sm btn-info'
+        %td= link_to 'Delete', user_list_path(current_user,@list.id), method: :delete, class: 'btn btn-sm btn-danger'        
+        %td= link_to 'Tasks', user_list_tasks_path(current_user,@list.id), class: 'btn btn-sm btn-success'
+        
+  =link_to 'Back', user_lists_path, class: 'btn btn-sm btn-secondary'

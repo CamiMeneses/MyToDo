@@ -1,0 +1,21 @@
+.container
+  %h1.text-center My tasks
+  %table.table.table-striped.mt-5
+    %thead.table-dark
+      %tr
+        %th Name
+        %th Description
+        %th Status
+        %th Actions        
+    %tbody
+    -@tasks.each do |task|
+      %tr
+        %td= task.name
+        %td= task.description
+        %td= done(task)                
+        %td= link_to 'Show', user_list_task_path(current_user,@list.id,task.id), class: 'btn btn-sm btn-success'
+
+  =link_to 'Create a task', new_user_list_task_path, class: 'btn btn-primary'
+  %br
+  %br
+  = link_to 'Back', user_lists_path, class: 'btn btn-sm btn-secondary'

@@ -1,0 +1,16 @@
+.container
+  %h1.text-center My lists
+  %table.table.table-striped.mt-5
+    %thead.table-dark
+      %tr
+        %th Name
+        %th Description
+        %th Actions        
+    %tbody
+    -@lists.each do |list|
+      %tr
+        %td= list.name
+        %td= list.description                
+        %td= link_to 'Show', user_list_path(current_user,list.id), class: 'btn btn-sm btn-success'
+
+  =link_to 'Create a list', new_user_list_path, class: 'btn btn-primary'

@@ -1,0 +1,17 @@
+.container
+  %h1 Update Task
+  =form_for [current_user,@list,@task] do |f|
+
+    .form-group
+      =f.label :name
+      =f.text_field :name, class: 'form-control'
+    .form-group 
+      =f.label :description
+      %textarea#textarea.form-control{name: "task[description]"} 
+    .form-group
+      =f.label :Done
+      =f.check_box :status, class: 'form-control-md'
+    
+    .form-group
+      =f.submit 'Update', class: 'btn btn-primary'
+  = link_to 'Back', user_list_tasks_path, class: 'btn btn-sm btn-secondary'

@@ -1,0 +1,14 @@
+.container
+  %h1.text-center ToDo app
+  %br
+  %h3.text-center Requerimientos
+  %ul
+    %li El usuario puede crear, modificar o eliminar una cuenta
+    %li El usuario puede crear, modificar o eliminar diferentes ToDo lists
+    %li El usuario puede crear, modificar o eliminar una tarea en un ToDo list
+    %li El usuario puede marcar como done una tarea en el ToDo list
+  
+  = image_tag 'diagrama.JPG', alt: '', height: '', width: '', class: ''
+  %br
+  - unless current_user.nil?
+    = link_to 'my lists', user_lists_path(current_user), class: 'btn btn-md btn-primary'
