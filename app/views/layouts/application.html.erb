@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+two" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Spirax|Ubuntu" rel="stylesheet">
 
   </head>
 
@@ -23,14 +25,26 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0"> 
             <li class="nav-item">    
-              <a class="nav-link" href='/users/1/lists'>Lists</a>
+              <a class="nav-link" href=<%= "/users/#{current_user.id}/lists" %>>Lists</a>
             </li>                  
           </ul>
         </div> 
-        <ul class="nav nav-pills">                 
-          <li>          
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"link_log_out" %>
-          </li>          
+        <ul class="nav navbar-nav navbar-right"> 
+        <% if current_user %>
+          <li>
+            <p><%= current_user.name%> <p>
+          </li>
+          <li><%= link_to 'Edit Account',edit_user_registration_path %>
+          </li><br>            
+          <li> 
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"link_log_out" %>
+          </li> 
+          <li> 
+            <%= link_to "Delete my account", remove_user_path(current_user), method: :delete, data: { confirm: "Deseas eliminar esta cuenta?" } %> 
+          </li> 
+        <% else %> 
+          <li><%= link_to 'Login', new_user_session_path %></li>
+        <% end %>    
         </ul>
       </nav>
     <% end %>

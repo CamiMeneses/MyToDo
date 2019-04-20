@@ -6,13 +6,12 @@
         %th Name
         %th Description
         %th Status
-        %th{ :colspan => 2 } Actions
     %tbody
       %tr
         %td= @task.name
         %td= @task.description
         %td= done(@task) 
-        %td= link_to 'Edit', edit_user_list_task_path(current_user,@list.id), class: 'btn btn-sm btn-info'
-        %td= link_to 'Delete', user_list_task_path(current_user,@list.id), method: :delete, class: 'btn btn-sm btn-danger'
+  = link_to 'Edit', edit_user_list_task_path(current_user,@list.id), class: 'btn btn-sm btn-info'
+  = link_to 'Delete', user_list_task_path(current_user,@list.id), method: :delete, class: 'btn btn-sm btn-danger'
         
   =link_to 'Back', user_list_tasks_path, class: 'btn btn-sm btn-secondary'

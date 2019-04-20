@@ -7,7 +7,7 @@
       =f.text_field :name, class: 'form-control'
     .form-group 
       =f.label :description
-      %textarea#textarea.form-control{name: "task[description]"} 
+      =f.text_area :description, class: 'form-control' 
     .form-group
       =f.label :Done
       =f.check_box :status, class: 'form-control-md'
